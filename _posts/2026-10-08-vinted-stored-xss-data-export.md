@@ -66,7 +66,7 @@ This bypass confirms the filter is not a real XSS mitigation.
 
 d=TWVzc2FnZXMKTWVzc2FnZSB0aHJlYWRzIHlvdSd2ZS4uLg==
 
-**Decoded content (real victim account data):**
+**Decoded content (real victim account data):** 
 ![Base64 decoded PII data](/Screenshot 2026-10-01 194400.png)
 
 
