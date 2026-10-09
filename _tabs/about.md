@@ -6,7 +6,7 @@ order: 4
 
 ## whoami
 
-I'm **MiLordd** — security researcher and bug bounty hunter based in Spain.
+I'm **Try.to.by.a.hacker** everyone kows me as ***Try***: security researcher and bug bounty hunter.
 
 I've been in cybersecurity since 2024, and in under a year I've gone from zero to hunting bugs on real targets, earning monetary bounties, reporting critical vulnerabilities to companies generating +$750M/year, receiving **3 Letters of Recognition from NASA**, and winning multiple hacking competitions.
 
