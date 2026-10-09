@@ -15,6 +15,7 @@ This is the **fourth independent stored XSS injection point** found in the same 
 
 > **Status:** Accepted, downgraded to P5 due to program rule (plugin requires +25K installs; Hipporello had +10K). Awarded 20 points × 4 reports. Vulnerability itself is P2 severity.
 
+![severity p5](/Screenshot 2026-10-09 034945.png)
 ---
 
 ## Vulnerability Details
@@ -135,7 +136,7 @@ Because Hipporello stores sessions exclusively in `localStorage` with no HttpOnl
 The program rules require the Power-Up to have +25K installs. Hipporello had +10K at the time of submission. The vulnerability itself, stored XSS with no-click trigger, full JWT exfiltration, and confirmed admin ATO, is objectively P2 severity. The downgrade is purely a program policy decision, not a reflection of the actual risk.
 
 The same root cause (missing HTML sanitization) was found in **four separate injection points** in the same Power-Up, all accepted individually.
-
+![Triager comment](/Screenshot 2026-10-09 035122.png)
 ---
 
 ## Recommendation
