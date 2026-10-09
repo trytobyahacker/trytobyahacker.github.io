@@ -1,7 +1,7 @@
 ---
 title: "Trello: Stored XSS via Hippotrello plugin allow all members/admins Account TakeOver + JWT Theft"
 date: 2026-10-09
-categories: [Writeups, Web]
+categories: [Web, XSS]
 tags: [xss, stored-xss, trello, hipporello, jwt, ato, bugbounty, cookie-hijacking]
 ---
 
