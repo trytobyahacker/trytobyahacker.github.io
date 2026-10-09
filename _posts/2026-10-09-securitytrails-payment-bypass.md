@@ -70,7 +70,10 @@ Most researchers would never test this flow because the cost acts as a natural d
 ![plan](/plan.png)
 
 7. Generate an API key, it activates with full Business quota (65,000 queries/month, commercial use).
-8. Wait 30+ days, the API key **auto-renews its quota without any payment**, indefinitely.
+
+![apikey](/apikey.png)
+
+9. Wait 30+ days, the API key **auto-renews its quota without any payment**, indefinitely.
 
 ![invoice](/invoice.png)
 ---
