@@ -12,6 +12,15 @@ The `GET /api/v2/users` endpoint, when called with the `order_by_buyer_for_item`
 Any authenticated user can substitute any `item_id` and retrieve who liked it, data that is **never exposed anywhere else in the product**. The public item page shows only an aggregate like count (e.g. ❤️ 26), never the identities behind it.
 
 ---
+## Vulnerability Details
+
+| Field | Value |
+|-------|-------|
+| **Type** | IDOR — Broken Object Level Authorization |
+| **Endpoint** | `GET /api/v2/users?order_by_buyer_for_item={item_id}` |
+| **Severity** | Medium |
+| **Status** | Reported |
+
 
 ## Affected Endpoint
 
