@@ -1,7 +1,7 @@
 ---
 title: "Vinted: IDOR Exposes Identity of Item Likers + Iteraction via order_by_buyer_for_item"
 date: 2026-10-09
-categories: [Writeups, IDOR]
+categories: [Web, IDOR]
 tags: [idor, vinted, broken-access-control, api, bugbounty, privacy]
 ---
 
