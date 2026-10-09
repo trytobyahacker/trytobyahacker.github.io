@@ -61,12 +61,14 @@ This bypass confirms the filter is not a real XSS mitigation.
 ## Evidence
 
 **Payload received at webhook:**
+![Request recibido en webhook](/Screenshot 2026-10-01 215639.png)
 
 d=TWVzc2FnZXMKTWVzc2FnZSB0aHJlYWRzIHlvdSd2ZS4uLg==
 
-![Request recibido en webhook](/Screenshot 2026-10-01 215639.png)
+![Carpeta messages en el ZIP](/Screenshot 2026-10-01 214958.png)
 
 **Decoded content (real victim account data):**
+
 ![Base64 decodificado — PII exfiltrada](/Screenshot 2026-10-01 194400.png)
 
 Messages
