@@ -7,12 +7,13 @@ tags: [payment-bypass, securitytrails, business-logic, api, bugbounty, p3]
 
 ## Summary
 
-The SecurityTrails checkout flow for the Business plan ($1,500/month) failed to validate whether a payment was successfully completed before upgrading the account. Submitting a payment with insufficient funds caused the backend to upgrade the account to Business tier anyway, granting full premium access indefinitely — including a permanently active API key that renewed its quota automatically every month without any further payment.
+The SecurityTrails checkout flow for the Business plan ($1,500/month) failed to validate whether a payment was successfully completed before upgrading the account. Submitting a payment with insufficient funds caused the backend to upgrade the account to Business tier anyway, granting full premium access indefinitely, including a permanently active API key that renewed its quota automatically every month without any further payment.
 
 **Bounty:** $750 — P3  
 
-**Plan affected:** Business ($1,500/mo) — 65,000 queries/month, commercial use, DSL access, associated domains, consulting services
+**Plan affected:** Business ($1,500/mo), 65,000 queries/month, commercial use, DSL access, associated domains, consulting services
 
+![plan](/sec1.png)
 ---
 
 ## Vulnerability Details
@@ -25,11 +26,13 @@ The SecurityTrails checkout flow for the Business plan ($1,500/month) failed to 
 | **Severity** | P3 |
 | **Bounty** | $750 |
 
+![bounty](/bounty.png)
+
 ---
 
 ## Discovery
 
-Found by attempting a real $1,500 purchase with an account that had insufficient funds — not to bypass anything, just to test the payment flow out of curiosity.
+Found by attempting a real $1,500 purchase with an account that had insufficient funds, not to bypass anything, just to test the payment flow out of curiosity.
 
 > *"What do I have to lose? Let me try this payment flow."*
 
@@ -37,6 +40,7 @@ The payment failed due to insufficient balance. The account was upgraded to Busi
 
 Most researchers would never test this flow because the cost acts as a natural deterrent. The barrier here was psychological, not technical.
 
+![insufi](/insufi.png)
 ---
 
 ## What the Business Plan Grants
@@ -52,6 +56,7 @@ Most researchers would never test this flow because the cost acts as a natural d
 | Commercial use | ✓ | ✓ |
 | Rate limit | 5 req/sec | 5 req/sec |
 
+![quota](/quota.png)
 ---
 
 ## Steps to Reproduce
@@ -64,6 +69,7 @@ Most researchers would never test this flow because the cost acts as a natural d
 6. Generate an API key, it activates with full Business quota (65,000 queries/month, commercial use).
 7. Wait 30+ days, the API key **auto-renews its quota without any payment**, indefinitely.
 
+![invoice](/invoice.png)
 ---
 
 ## Impact
@@ -71,7 +77,7 @@ Most researchers would never test this flow because the cost acts as a natural d
 - **Free permanent Business plan access**, $1,500/month of value with zero payment.
 - **API key remains active for 42+ days** and auto-renews monthly, confirmed by observing quota refresh without any billing event.
 - **Automatable at scale**, the flow can be scripted: create account → trigger failed payment → extract API key → use/sell quota → repeat.
-- API key grants **commercial use**, DSL access, 65,000 DNS/WHOIS queries/month, and associated domain lookups — capabilities valuable to threat intelligence and OSINT tooling.
+- API key grants **commercial use**, DSL access, 65,000 DNS/WHOIS queries/month, and associated domain lookups, capabilities valuable to threat intelligence and OSINT tooling.
 - No interaction required after initial bypass, the account maintains its premium state indefinitely.
 
 ---
