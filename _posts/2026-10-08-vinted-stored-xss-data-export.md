@@ -1,7 +1,7 @@
 ---
 title: "Vinted: Stored XSS in GDPR Data Export (Cross-User PII Exfiltration)"
 date: 2026-10-08
-categories: [Writeups, Web]
+categories: [Web, XSS]
 tags: [xss, stored-xss, vinted, gdpr, bugbounty, exfiltration]
 ---
 
