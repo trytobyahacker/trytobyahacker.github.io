@@ -62,12 +62,15 @@ In the "Add Text Widget" modal:
 - **Title:** `Stored XSS` (any value)
 - **Tooltip:** `<iframe src="javascript:alert(document.domain)">`
 - **Text:** any value
+![Text widget form](/trello3.png)
 
 Click Save. The Tooltip is stored server-side unsanitized.
+![Tooltip input field with payload](/trello4.png)
 
 **Step 2: Trigger (hover only):**
 
 Any board member who opens the Reporting section and hovers over the "?" icon next to the widget triggers the payload. The alert fires on `mouseover` alone, confirmed domain: `admin.hipporello.com`.
+![XSS alert firing on hover](/trello1.png)
 
 **Step 3: OOB callback received:**
 
@@ -78,7 +81,7 @@ Source IP: 195.242.214.150
 Origin: https://admin.hipporello.com
 Time: 2026-08-09 13:51:45 UTC
 
-
+![JWT and user data received at webhook](/trello2.png)
 ---
 
 ## Evidence
