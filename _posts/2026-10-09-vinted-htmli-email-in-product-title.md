@@ -30,6 +30,8 @@ The payload is invisible on the web UI (renders as plain text), meaning most res
 
 This bug was found by creating two controlled accounts, attacker and victim, and completing a real purchase between them. The title on the web UI showed the payload as plain text, which would normally lead a researcher to dismiss it as unexploitable. Only by going through the full purchase flow and checking the receipt email was the injection confirmed.
 
+![Text widget form](/vinted-confirm.png)
+
 Most hunters would miss this by only looking at the web UI.
 
 ---
@@ -49,11 +51,15 @@ Most hunters would miss this by only looking at the web UI.
 ```html
 <h1>pepepe</h1> or any htmli payload: <a href="https://evil.com">Verify payment</a>
 ```
+![Text widget form](/product-name.png)
+
 3. Log in with a second (victim) Vinted account.
 4. Purchase the malicious listing from the victim account.
 5. Open the purchase receipt email received by the victim.
 6. Observe that the HTML is rendered, `PEPEPE` or the "Verify payment" appears as a clickable link pointing to `https://evil.com`.
 
+![Text widget form](/payment-confirm-email.png)
+![Text widget form](/htmli-confirm.png)
 ---
 
 ## Impact
