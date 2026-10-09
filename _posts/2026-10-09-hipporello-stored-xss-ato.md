@@ -7,13 +7,13 @@ tags: [xss, stored-xss, trello, hipporello, jwt, ato, bugbounty, cookie-hijackin
 
 ## Summary
 
-The Hipporello Service Desk Power-Up for Trello fails to sanitize HTML in the **Tooltip** field of the "Add Text Widget" form (`admin.hipporello.com → Reporting → Add Widget → Text`). A board member can inject a stored XSS payload that executes in the browser of **any board member** — including admins — who simply hovers over the "?" icon next to the widget. No click required.
+The Hipporello Service Desk Power-Up for Trello fails to sanitize HTML in the **Tooltip** field of the "Add Text Widget" form (`admin.hipporello.com → Reporting → Add Widget → Text`). A board member can inject a stored XSS payload that executes in the browser of **any board member**, including admins, who simply hovers over the "?" icon next to the widget. No click required.
 
 Because Hipporello stores sessions exclusively in `localStorage` (no HttpOnly cookie), every XSS on `admin.hipporello.com` results in full session theft. The stolen JWT grants authenticated access to the Hipporello API as the victim.
 
 This is the **fourth independent stored XSS injection point** found in the same Power-Up, confirming a systemic absence of HTML sanitization across user-controlled fields.
 
-> **Status:** Accepted — downgraded to P5 due to program rule (plugin requires +25K installs; Hipporello had +10K). Awarded 20 points × 4 reports. Vulnerability itself is P2 severity.
+> **Status:** Accepted, downgraded to P5 due to program rule (plugin requires +25K installs; Hipporello had +10K). Awarded 20 points × 4 reports. Vulnerability itself is P2 severity.
 
 ---
 
@@ -65,11 +65,11 @@ In the "Add Text Widget" modal:
 
 Click Save. The Tooltip is stored server-side unsanitized.
 
-**Step 2 — Trigger (hover only):**
+**Step 2: Trigger (hover only):**
 
 Any board member who opens the Reporting section and hovers over the "?" icon next to the widget triggers the payload. The alert fires on `mouseover` alone, confirmed domain: `admin.hipporello.com`.
 
-**Step 3 — OOB callback received:**
+**Step 3: OOB callback received:**
 
 Two HTTP POSTs arrived at the attacker's interactsh server within 2 seconds of hovering.
 
