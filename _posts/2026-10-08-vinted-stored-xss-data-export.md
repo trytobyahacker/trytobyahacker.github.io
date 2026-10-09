@@ -55,6 +55,7 @@ This bypass confirms the filter is not a real XSS mitigation.
 `file:///.../messages/index.html`
 
 **6.** The browser renders the page, the `<img onerror>` fires, and a `fetch` request reaches the attacker's webhook with the page content base64-encoded in the `d` parameter.
+
 ![XSS alert executing on file open](/alert.png)
 ---
 
