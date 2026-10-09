@@ -22,7 +22,7 @@ The SecurityTrails checkout flow for the Business plan ($1,500/month) failed to 
 |-------|-------|
 | **Type** | Payment Bypass + Business Logic Flaw |
 | **Location** | Checkout flow — Business plan upgrade |
-| **Impact** | Free permanent access to $1,500/mo plan + auto-renewing API quota |
+| **Impact** | Free permanent access to $1,500/month plan + auto-renewing API quota |
 | **Severity** | P3 |
 | **Bounty** | $750 |
 
