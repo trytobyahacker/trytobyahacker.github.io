@@ -1,5 +1,5 @@
 ---
-title: "Android Notes: AndroidManifest.xml — What It Is and What to Look For"
+title: "Android Notes: AndroidManifest.xml, What It Is and What to Look For?"
 date: 2026-10-09
 categories: [Mobile, Android, Notes]
 tags: [android, jadx, manifest, permissions, recon, mobile]
