@@ -74,7 +74,7 @@ Subtotal              -£100,908.99
 Order Total           FREE
 ```
 
-![backet](/backet.png)
+![basket](/backet.png)
 
 The basket now shows a credit of **£100,908.99**.
  
@@ -131,7 +131,7 @@ data={"items":[{"sku":"PREMIERMAN","quantity":-10101,"algolia":[]}]}
 - Checkout completed without payment
 ---
 
-[![delivery](/delivery.jpg)
+![delivery](/delivery.jpg)
 
 ## Why This Works
  
