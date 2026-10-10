@@ -60,6 +60,7 @@ data=%7B%22items%22%3A%5B%7B%22sku%22%3A%22PREMIERMAN%22%2C%22quantity%22%3A1%2C
  
 4. In the `data` parameter, change `"quantity":1` to `"quantity":-10101`
 5. Forward the request, server returns **HTTP 200**
+
 ![request](/request-premier.png)
 
 ### Phase 2: Confirm the credit
@@ -72,6 +73,7 @@ BOOHOOMAN Premier     -£100,908.99
 Subtotal              -£100,908.99
 Order Total           FREE
 ```
+
 ![backet](/backet.png)
 
 The basket now shows a credit of **£100,908.99**.
@@ -80,7 +82,7 @@ The basket now shows a credit of **£100,908.99**.
  
 Adding regular clothing items to the basket reduces the credit — but physical products require a delivery address and the order can be tracked. To fully monetize the vulnerability:
  
-1. Add multiple **Products, e-Gift Card, atc** (gift card £250 each) to the basket, up to the credit limit
+1. Add multiple **Products, e-Gift Card, atc** (gift card £250 each) to the basket, up to the credit limit.
 
 ![checkout](/checkout.png)
 
