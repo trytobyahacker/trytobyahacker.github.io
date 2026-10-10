@@ -144,7 +144,7 @@ adb shell am start -a jakhar.aseem.diva.action.VIEW_CREDS
  
 ### Summary
  
-From the manifest alone — before looking at a single line of Java, DIVA is already confirmed vulnerable to:
+From the manifest alone, before looking at a single line of Java, DIVA is already confirmed vulnerable to:
  
 - ADB debugging and memory inspection
 - Backup-based data extraction
