@@ -74,7 +74,7 @@ Analyzing `base.apk` from the Vinted Android app in jadx-gui, the manifest revea
 - Custom permission `fr.vinted.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` with `protectionLevel="signature"`, protects internal broadcast receivers
 - Multiple Google Ads and Firebase permissions declared
 
-![vinted-manifest](/vintes-manifest.png)
+![vinted-manifest](/vinted-manifest.png)
 
 Nothing critical on the surface, but the manifest is always step one of any Android security review.
  
