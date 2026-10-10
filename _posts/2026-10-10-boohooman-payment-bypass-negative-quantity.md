@@ -81,7 +81,7 @@ The basket now shows a credit of **£100,908.99**.
  
 ### Phase 3: Convert credit to gift cards (full exploitation)
  
-Adding regular clothing items to the basket reduces the credit — but physical products require a delivery address and the order can be tracked. To fully monetize the vulnerability:
+Adding regular clothing items to the basket reduces the credit, but physical products require a delivery address and the order can be tracked. To fully monetize the vulnerability:
  
 1. Add multiple **Products, e-Gift Card, atc** (gift card £250 each) to the basket, up to the credit limit.
 
@@ -163,6 +163,7 @@ The Boohoo Group platform sells **designer and premium products** (Gucci, Prada,
 - Reject non-positive quantity values for membership/subscription products at the API level
 - Validate that basket totals cannot be negative before processing checkout
 - Implement server-side checks that prevent `add_on_service` category products from accepting quantity parameters at all
+
 ---
  
 ## Disclosure Timeline
