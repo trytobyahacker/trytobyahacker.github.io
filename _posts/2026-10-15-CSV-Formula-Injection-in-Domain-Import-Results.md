@@ -43,7 +43,7 @@ Steps to Reproduce
 2. Go to the domain import / bulk update feature that accepts a CSV file.
 3. Create a CSV file with the following content via Burpsuite:
 
-![import](/epik-import.png)
+![import](/assets/img/posts/epik-import.png)
 
 ```
 Domain,Parking Title
@@ -52,7 +52,7 @@ Domain,Parking Title
 test.com,=1+1
 ```
 
-![import](/epik-burp.png)
+![import](/assets/img/posts/epik-burp.png)
 
 #### You can use different payloads:
 
@@ -62,12 +62,12 @@ test.com,=1+1
 4. Upload the CSV.
 5. After processing, download the results file (e.g. import-result-94305.csv or “Download All Results” / “Download Domains with Errors”).
    
-![import](/epik-download-csv.png)
+![import](/assets/img/posts/epik-download-csv.png)
 
 7. Open the downloaded CSV with Microsoft Excel.
    
 
-![import](/epik-exel.png)
+![import](/assets/img/posts/epik-exel.png)
 
 #### Observed Result:
 Excel shows the value of 1+1 = 2. The malicious formula is present in the “Parking Title” column.

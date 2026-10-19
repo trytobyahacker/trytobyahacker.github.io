@@ -15,7 +15,7 @@ This is the **fourth independent stored XSS injection point** found in the same 
 
 > **Status:** Accepted, downgraded to P5 due to program rule (plugin requires +25K installs; Hipporello had +10K). Awarded 20 points × 4 reports. Vulnerability itself is P2 severity.
 
-![severity p5](/Screenshot 2026-10-09 034945.png)
+![severity p5](/assets/img/posts/Screenshot 2026-10-09 034945.png)
 ---
 
 ## Vulnerability Details
@@ -63,15 +63,15 @@ In the "Add Text Widget" modal:
 - **Title:** `Stored XSS` (any value)
 - **Tooltip:** `<iframe src="javascript:alert(document.domain)">`
 - **Text:** any value
-![Text widget form](/trello3.png)
+![Text widget form](/assets/img/posts/trello3.png)
 
 Click Save. The Tooltip is stored server-side unsanitized.
-![Tooltip input field with payload](/trello4.png)
+![Tooltip input field with payload](/assets/img/posts/trello4.png)
 
 **Step 2: Trigger (hover only):**
 
 Any board member who opens the Reporting section and hovers over the "?" icon next to the widget triggers the payload. The alert fires on `mouseover` alone, confirmed domain: `admin.hipporello.com`.
-![XSS alert firing on hover](/trello1.png)
+![XSS alert firing on hover](/assets/img/posts/trello1.png)
 
 **Step 3: OOB callback received:**
 
@@ -82,7 +82,7 @@ Source IP: 195.242.214.150
 Origin: https://admin.hipporello.com
 Time: 2026-08-09 13:51:45 UTC
 
-![JWT and user data received at webhook](/trello2.png)
+![JWT and user data received at webhook](/assets/img/posts/trello2.png)
 ---
 
 ## Evidence
@@ -136,7 +136,7 @@ Because Hipporello stores sessions exclusively in `localStorage` with no HttpOnl
 The program rules require the Power-Up to have +25K installs. Hipporello had +10K at the time of submission. The vulnerability itself, stored XSS with no-click trigger, full JWT exfiltration, and confirmed admin ATO, is objectively P2 severity. The downgrade is purely a program policy decision, not a reflection of the actual risk.
 
 The same root cause (missing HTML sanitization) was found in **four separate injection points** in the same Power-Up, all accepted individually.
-![Triager comment](/Screenshot 2026-10-09 035122.png)
+![Triager comment](/assets/img/posts/Screenshot 2026-10-09 035122.png)
 ---
 
 ## Recommendation

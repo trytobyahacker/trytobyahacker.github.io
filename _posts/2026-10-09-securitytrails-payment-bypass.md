@@ -13,7 +13,7 @@ The SecurityTrails checkout flow for the Business plan ($1,500/month) failed to 
 
 **Plan affected:** Business ($1,500/mo), 65,000 queries/month, commercial use, DSL access, associated domains, consulting services
 
-![plan](/sec1.png)
+![plan](/assets/img/posts/sec1.png)
 ---
 
 ## Vulnerability Details
@@ -26,7 +26,7 @@ The SecurityTrails checkout flow for the Business plan ($1,500/month) failed to 
 | **Severity** | P3 |
 | **Bounty** | $750 |
 
-![bounty](/bounty.png)
+![bounty](/assets/img/posts/bounty.png)
 
 ---
 
@@ -40,7 +40,7 @@ The payment failed due to insufficient balance. The account was upgraded to Busi
 
 Most researchers would never test this flow because the cost acts as a natural deterrent. The barrier here was psychological, not technical.
 
-![insufi](/insufi.png)
+![insufi](/assets/img/posts/insufi.png)
 ---
 
 ## What the Business Plan Grants
@@ -56,7 +56,7 @@ Most researchers would never test this flow because the cost acts as a natural d
 | Commercial use | ✓ | ✓ |
 | Rate limit | 5 req/sec | 5 req/sec |
 
-![quota](/quota.png)
+![quota](/assets/img/posts/quota.png)
 ---
 
 ## Steps to Reproduce
@@ -67,15 +67,15 @@ Most researchers would never test this flow because the cost acts as a natural d
 4. The payment fails client-side / at the payment processor.
 5. Observe that the **account is upgraded to Business tier anyway**.
 
-![plan](/plan.png)
+![plan](/assets/img/posts/plan.png)
 
 7. Generate an API key, it activates with full Business quota (65,000 queries/month, commercial use).
 
-![apikey](/apikey.png)
+![apikey](/assets/img/posts/apikey.png)
 
 9. Wait 30+ days, the API key **auto-renews its quota without any payment**, indefinitely.
 
-![invoice](/invoice.png)
+![invoice](/assets/img/posts/invoice.png)
 ---
 
 ## Impact

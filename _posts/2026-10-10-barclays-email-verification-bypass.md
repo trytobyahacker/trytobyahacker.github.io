@@ -50,18 +50,18 @@ However, the password reset flow does not check the account's verification state
 2. Do **not** click the verification link sent to your inbox
 3. Attempt to log in → blocked with the error above
    
-![barclays1](/barclays1.png)
+![barclays1](/assets/img/posts/barclays1.png)
 
 5. Navigate to **Forgot Password** and request a reset for the same account
 
-![barclays2](/barclays2.png)
+![barclays2](/assets/img/posts/barclays2.png)
 
 7. Complete the password reset using the link sent to your email
 8. Log in using the new password, **authentication succeeds**
-![barclays3](/barclays3.png)
+![barclays3](/assets/img/posts/barclays3.png)
 10. Access Candidate Home and job application functionality
 
-![barclays4](/barclays4.png)
+![barclays4](/assets/img/posts/barclays4.png)
 
 ---
  
@@ -109,7 +109,7 @@ Both accounts reached identical access levels.
  
 The triager initially validated the report and informed the client. The client later returned and rejected it with the following justification.
 
-![barclays5](/barclays5.png)
+![barclays5](/assets/img/posts/barclays5.png)
 
 ---
  
@@ -117,7 +117,7 @@ The triager initially validated the report and informed the client. The client l
  
 > *"If a user is able to reset the password via receiving an email, that means the user has access to that mailbox, hence implicitly they're validating the email address, regardless of whether the user has validated the email address before or not. This is not a vulnerability; it is expected functionality."*
 
-![barclays6](/barclays6.png)
+![barclays6](/assets/img/posts/barclays6.png)
 
 ## My Take
  

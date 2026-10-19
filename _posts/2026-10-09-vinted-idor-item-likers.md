@@ -28,7 +28,7 @@ Any authenticated user can substitute any `item_id` and retrieve who liked it, d
 GET /api/v2/users?per_page=100&search_text=&order_by_buyer_for_item={item_id}
 Host: www.vinted.com
 ```
-![idor](/1.png)
+![idor](/assets/img/posts/1.png)
 
 This endpoint is part of the legitimate "Mark as sold" flow, when a seller marks an item as sold off-platform, Vinted shows them a list of likely buyers (users who liked the item) so they can select who they sold it to.
 
@@ -42,7 +42,7 @@ The backend correctly verifies that the request carries a valid authenticated se
 HTTP/2 401
 {"code":100,"message":"Invalid authentication token","message_code":"invalid_authentication_token"}
 ```
-![idor](/2.png)
+![idor](/assets/img/posts/2.png)
 
 However, it does **not** verify that the `item_id` passed in `order_by_buyer_for_item` belongs to the authenticated user. Any logged-in account can request this data for any item on the platform simply by manipulating the `item_id` in the query string.
 
@@ -54,13 +54,13 @@ To verify the returned list genuinely reflects real item interactions, the follo
 
 1. Vinted sent a native push notification: **"amethyst1984 added your tt t5 to their favorites."**  
    The item (`tt t5`, `item_id: 10197071411`) belongs to the tester, this is ground truth.
-![idor](/3.png)
-![idor](/4-vinted.png)
+![idor](/assets/img/posts/3.png)
+![idor](/assets/img/posts/4-vinted.png)
 
 3. The tester followed the legitimate UI flow that triggers the endpoint:  
    Notification → Inbox conversation → Details icon → Mark as sold → intercepted the request with a proxy.
-![idor](/5-vinted.png)
-![idor](/6-vinted.png)
+![idor](/assets/img/posts/5-vinted.png)
+![idor](/assets/img/posts/6-vinted.png)
 
 5. The intercepted request:
 ```http
@@ -71,7 +71,7 @@ GET /api/v2/users?per_page=100&search_text=&order_by_buyer_for_item=10197071411
 ```json
 {"id": 3166955222, "login": "amethyst1984", ...}
 ```
-![idor](/7.png)
+![idor](/assets/img/posts/7.png)
 
 This confirms the endpoint's first result correctly corresponds to the real, verifiable user who liked the item, not a coincidental or generic listing.
 
@@ -86,8 +86,8 @@ This confirms the endpoint's first result correctly corresponds to the real, ver
 GET /api/v2/users?per_page=100&search_text=&order_by_buyer_for_item={item_id_of_B}
 ```
 4. Observe `200 OK` with a list of users tied to that item, data the UI only exposes to the item's actual owner.
-![idor](/8.png)
-![idor](/9.png)
+![idor](/assets/img/posts/8.png)
+![idor](/assets/img/posts/9.png)
 
 6. **Negative control:** repeat the same request unauthenticated (incognito) → `401 invalid_authentication_token`, confirming the break is in **authorization**, not authentication.
 

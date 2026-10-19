@@ -15,13 +15,13 @@ PC to the Android device or emulator and lets you send it commands.
 If you run `adb shell pm list packages` → you're listing the apps installed
 on the device.
 
-![Text widget form](/emulaorr.png)
+![Text widget form](/assets/img/posts/emulaorr.png)
 
 ```bash
 adb shell pm list packages
 ```
 
-![Text widget form](/packages.png)
+![Text widget form](/assets/img/posts/packages.png)
  
 > `shell` = run a command inside Android.
 > `pm` = package manager (Android's package manager).
@@ -36,7 +36,7 @@ Now to find its full path:
 ```bash
 adb shell pm path jakhar.aseem.diva
 ```
-![Text widget form](/path.png)
+![Text widget form](/assets/img/posts/path.png)
 
 > `pm path <package>` = tell me which folder the app's APK is physically
 > stored in inside Android.
@@ -79,7 +79,7 @@ You'll get these 4 files:
 3. package:/data/app/~~n8PmKeJJMUWOIYFvLQFBgQ==/io.getdelta.android-6APNP-e0E_eyRMyxL_7sAA==/split_config.tvdpi.apk
 4. package:/data/app/~~n8PmKeJJMUWOIYFvLQFBgQ==/io.getdelta.android-6APNP-e0E_eyRMyxL_7sAA==/split_config.x86_64.apk
 ```
-![Text widget form](/4-archives.png)
+![Text widget form](/assets/img/posts/4-archives.png)
  
 They're all in the **same folder**. To pull them all at once, copy the path
 only up to the folder, that is, **without the `/base.apk` at the end**

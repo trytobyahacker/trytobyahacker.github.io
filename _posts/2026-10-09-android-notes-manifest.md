@@ -74,7 +74,7 @@ Analyzing `base.apk` from the Vinted Android app in jadx-gui, the manifest revea
 - Custom permission `fr.vinted.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` with `protectionLevel="signature"`, protects internal broadcast receivers
 - Multiple Google Ads and Firebase permissions declared
 
-![vinted-manifest](/vinted-manifest.png)
+![vinted-manifest](/assets/img/posts/vinted-manifest.png)
 
 Nothing critical on the surface, but the manifest is always step one of any Android security review.
  
@@ -90,7 +90,7 @@ Nothing critical on the surface, but the manifest is always step one of any Andr
     android:allowBackup="true"
     ...>
 ```
-![diva1](/diva-1.png)
+![diva1](/assets/img/posts/diva-1.png)
  
 ### 🔴 Critical findings at a glance
  
@@ -114,7 +114,7 @@ Nothing critical on the surface, but the manifest is always step one of any Andr
     android:authorities="jakhar.aseem.diva.provider.notesprovider"/>
 ```
 
-![diva2](/diva-2.png)
+![diva2](/assets/img/posts/diva-2.png)
   
 No `android:permission` attribute. Any app can do:
  
@@ -134,7 +134,7 @@ And read all notes. On a real app this could be messages, tokens, or PII.
     </intent-filter>
 </activity>
 ```
-![diva3](/diva-3.png)
+![diva3](/assets/img/posts/diva-3.png)
   
 Because this Activity has an `intent-filter` it is **implicitly exported**, any malicious app can fire an intent with action `jakhar.aseem.diva.action.VIEW_CREDS` and open the credentials screen directly.
  

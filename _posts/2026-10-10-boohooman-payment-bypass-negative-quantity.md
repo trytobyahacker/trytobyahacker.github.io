@@ -47,7 +47,7 @@ A membership with `quantity: -10101` becomes a **credit of £100,908.99** applie
 1. Navigate to `boohooman.com/pages/informational/premier-delivery`
 2. Click **ADD TO BAG** to add the Premier membership (£9.99)
 
-![premier](/premier.png)
+![premier](/assets/img/posts/premier.png)
 
 3. Intercept the request in Burp Suite:
 
@@ -62,7 +62,7 @@ data=%7B%22items%22%3A%5B%7B%22sku%22%3A%22PREMIERMAN%22%2C%22quantity%22%3A1%2C
 4. In the `data` parameter, change `"quantity":1` to `"quantity":-10101`
 5. Forward the request, server returns **HTTP 200**
 
-![request](/request-premier.png)
+![request](/assets/img/posts/request-premier.png)
 
 ### Phase 2: Confirm the credit
  
@@ -75,7 +75,7 @@ Subtotal              -£100,908.99
 Order Total           FREE
 ```
 
-![basket](/backet.png)
+![basket](/assets/img/posts/backet.png)
 
 The basket now shows a credit of **£100,908.99**.
  
@@ -85,7 +85,7 @@ Adding regular clothing items to the basket reduces the credit, but physical pro
  
 1. Add multiple **Products, e-Gift Card, atc** (gift card £250 each) to the basket, up to the credit limit.
 
-![checkout](/checkout.png)
+![checkout](/assets/img/posts/checkout.png)
 
 3. The Order Total remains **£0.00**
 4. Proceed to checkout, **no payment method required**
@@ -94,7 +94,7 @@ Adding regular clothing items to the basket reduces the credit, but physical pro
 7. Use the gift cards to purchase any products (clothing, designer brands, electronics), items are delivered to your home the next day
 This converts an abstract negative balance into real monetary value with no paper trail linking it to the original manipulation.
 
-![giftcard](/giftcard.png)
+![giftcard](/assets/img/posts/giftcard.png)
 
 ---
  
@@ -132,7 +132,7 @@ data={"items":[{"sku":"PREMIERMAN","quantity":-10101,"algolia":[]}]}
 - Checkout completed without payment
 ---
 
-![delivery](/delivery.jpg)
+![delivery](/assets/img/posts/delivery.jpg)
 
 ## Why This Works
  
