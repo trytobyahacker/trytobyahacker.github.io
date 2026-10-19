@@ -1,6 +1,6 @@
 ---
 title: "Android Notes: Pulling an APK from a Device to Your PC/Windows"
-date: 2026-10-19 06:00:00 +0000
+date: 2026-10-19
 categories: [Mobile, Android]
 tags: [android, apk, adb, bugbounty, mobile, security, mobile-security]
 ---
