@@ -32,7 +32,7 @@ That hit me hard. I thought about it for a long time.
 
 ## The grind
 
-In 2024 I finally saved enough to buy a computer and started learning on my own, YouTube, HackTheBox, TryHackMe, PortSwigger, public bug reports, making contacts in the community.
+In 202X I finally saved enough to buy a computer and started learning on my own, YouTube, HackTheBox, TryHackMe, PortSwigger, public bug reports, making contacts in the community.
 
 When I had around **53 HTB machines** completed I didn't want to stagnate. So I started testing real local businesses, walking into shops in person and reporting bugs directly to the managers. That's how I became a freelancer, combining security work with building websites for small businesses that had none, powered by AI tools.
 
