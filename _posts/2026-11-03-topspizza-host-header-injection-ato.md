@@ -1,6 +1,6 @@
 ---
 title: "TopsPizza: 1-Click Account TakeOver via Password Host Header Injection"
-date: 2026-11-03 12:00:00 +0000
+date: 2026-11-03 10:00:00 +0000
 categories: [Web, BusinessLogic]
 tags: [host-header-injection, password-reset-poisoning, idor, api]
 ---
