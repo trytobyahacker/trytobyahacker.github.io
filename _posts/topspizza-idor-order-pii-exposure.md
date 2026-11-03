@@ -1,6 +1,6 @@
 ---
 title: "TopsPizza: IDOR Exposes Customer PII via Order Tracking Endpoint"
-date: 2026-11-03 10:00:00 +0000
+date: 2026-11-03 09:00:00 +0000
 categories: [Web, IDOR]
 tags: [idor, api, pii, business-logic, topspizza]
 ---
