@@ -1,6 +1,6 @@
 ---
 title: "Whatnot: Team Invitation Acceptable by Unintended Email (Role Escalation)"
-date: 2026-11-03 14:00:00 +0000
+date: 2026-11-03 13:00:00 +0000
 categories: [Web, BusinessLogic]
 tags: [access-control, role-escalation, bugbounty, hackerone]
 ---
