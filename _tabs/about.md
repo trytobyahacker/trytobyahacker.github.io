@@ -8,7 +8,7 @@ order: 4
 
 I'm **Try.to.by.a.hacker** everyone kows me as ***Try***, Security Researcher and Bug Bounty Hunter.
 
-I've been in cybersecurity since 2024, and in under a year I've gone from zero to hunting bugs on real targets, earning monetary bounties, reporting critical vulnerabilities to companies generating +$750M/year, receiving **3 Letters of Recognition from NASA**, and winning multiple hacking competitions.
+I've been in cybersecurity since 202X, and in under a year I've gone from zero to hunting bugs on real targets, earning monetary bounties, reporting critical vulnerabilities to companies generating +$750M/year, receiving **3 Letters of Recognition from NASA**, and winning multiple hacking competitions.
 
 ---
 
@@ -42,7 +42,7 @@ From there I moved to bug bounty platforms, focusing heavily on **Web and APIs**
 
 ## Stats
 
-- 🏆 +$1,000 in paid bounties
+- 🏆 +$X,XXX in paid bounties
 - 🚨 Critical bugs reported to companies with +$750M annual revenue
 - 🛸 ×3 Letters of Recognition from NASA
 - 🥇 Multiple hacking competition wins
