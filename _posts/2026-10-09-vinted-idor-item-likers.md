@@ -28,7 +28,7 @@ Any authenticated user can substitute any `item_id` and retrieve who liked it, d
 GET /api/v2/users?per_page=100&search_text=&order_by_buyer_for_item={item_id}
 Host: www.vinted.com
 ```
-![idor](/assets/img/posts/1.png)
+![idor](/assets/img/posts/Screenshot%202026-10-04%20073021.png)
 
 This endpoint is part of the legitimate "Mark as sold" flow, when a seller marks an item as sold off-platform, Vinted shows them a list of likely buyers (users who liked the item) so they can select who they sold it to.
 
@@ -54,7 +54,7 @@ To verify the returned list genuinely reflects real item interactions, the follo
 
 1. Vinted sent a native push notification: **"amethyst1984 added your tt t5 to their favorites."**  
    The item (`tt t5`, `item_id: 10197071411`) belongs to the tester, this is ground truth.
-![idor](/assets/img/posts/3.png)
+![idor](/assets/img/posts/Screenshot%202026-10-04%20074647.png)
 ![idor](/assets/img/posts/4-vinted.png)
 
 3. The tester followed the legitimate UI flow that triggers the endpoint:  
@@ -71,7 +71,7 @@ GET /api/v2/users?per_page=100&search_text=&order_by_buyer_for_item=10197071411
 ```json
 {"id": 3166955222, "login": "amethyst1984", ...}
 ```
-![idor](/assets/img/posts/7.png)
+![idor](/assets/img/posts/Screenshot%202026-10-04%20080636.png)
 
 This confirms the endpoint's first result correctly corresponds to the real, verifiable user who liked the item, not a coincidental or generic listing.
 
@@ -86,8 +86,8 @@ This confirms the endpoint's first result correctly corresponds to the real, ver
 GET /api/v2/users?per_page=100&search_text=&order_by_buyer_for_item={item_id_of_B}
 ```
 4. Observe `200 OK` with a list of users tied to that item, data the UI only exposes to the item's actual owner.
-![idor](/assets/img/posts/8.png)
-![idor](/assets/img/posts/9.png)
+![idor](/assets/img/posts/Screenshot%202026-10-04%20080636.png)
+![idor](/assets/img/posts/Screenshot%202026-10-04%20081105.png)
 
 6. **Negative control:** repeat the same request unauthenticated (incognito) → `401 invalid_authentication_token`, confirming the break is in **authorization**, not authentication.
 
