@@ -1,5 +1,5 @@
 ---
-title: "radiotelevisionge: Unauthenticated Read/Write on Internet-Exposed Kiloview E3 Encoder, Including the Live YouTube Stream Key"
+title: "Radiotelevisionge: Unauthenticated Read/Write on Internet-Exposed Kiloview E3 Encoder, Including the Live YouTube Stream Key"
 date: 2026-11-15 00:00:00 +0000
 categories: [IoT, BAC]
 tags: [bugbounty, api, broken-access-control, csrf, iot, fixed]
