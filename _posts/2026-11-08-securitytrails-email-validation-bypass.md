@@ -1,7 +1,7 @@
 ---
 title: "SecurityTrails: Improper Email Validation Bypass Enables Account Registration with Blocked Temporary Email Providers"
 date: 2026-11-08 20:00:00 +0000
-categories: [Web, Business Logic]
+categories: [Web, BusinessLogic]
 tags: [web, bugbounty, business-logic, validation-bypass, bugcrowd, securitytrails]
 ---
  
