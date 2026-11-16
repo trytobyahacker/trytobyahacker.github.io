@@ -1,6 +1,6 @@
 ---
 title: "kDrive (Infomaniak): Improper Access Control on Per-File Download Endpoint Bypasses Share's Download Restriction"
-date: 2026-11-16 20:00:00 +0000
+date: 2026-11-16 00:00:00 +0000
 categories: [Web, Broken Access Control]
 tags: [bugbounty, idor, access-control, infomaniak, kdrive, yeswehack]
 ---
